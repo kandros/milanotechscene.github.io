@@ -13,6 +13,11 @@ function EventListViewModel() {
         self.events(mappedEvents);
     });
 
+
+    $.getJSON("https://www.googleapis.com/calendar/v3/calendars/startmiup.it_lnvisvcuum6rdsm1v101fem2i8@group.calendar.google.com/events?key=AIzaSyBTWrK5hUt9yZ_zta3AUoKorBTHeW2fBlc", function(allData) {
+        console.log("CALENDAAAAAAAAAAAAAAAAAAR")
+        console.log(allData)
+    });
     
 
 }
