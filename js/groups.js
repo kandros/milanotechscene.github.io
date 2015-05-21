@@ -1,25 +1,29 @@
-function Event(data) {
+function Group(data) {
     this.name = ko.observable(data.name);
     this.logo = ko.observable(data.logo);
 }
 
-function EventListViewModel() {
-    // Data
+function GroupListViewModel() {
     var self = this;
-    self.events = ko.observableArray([]);
+    self.groups = ko.observableArray([]);
   
     $.getJSON("https://milanotechscene.apispark.net/v1/groups", function(allData) {
-        var mappedEvents = $.map(allData, function(item) { return new Event(item) });
+        var mappedGroups = $.map(allData, function(item) { return new Group(item) });
+        self.groups(mappedGroups);
+    });
+
+    self.events = ko.observableArray([]);
+  
+    $.getJSON("https://www.googleapis.com/calendar/v3/calendars/startmiup.it_lnvisvcuum6rdsm1v101fem2i8@group.calendar.google.com/events?key=AIzaSyBP-eVlQhmfD0Ml630CHwWxsv27k14zjfc", function(allData) {
+        console.log(allData.items)
+        var mappedEvents = $.map(allData.items, function(item) { return new Event(item) });
         self.events(mappedEvents);
     });
 
-
-    $.getJSON("https://www.googleapis.com/calendar/v3/calendars/startmiup.it_lnvisvcuum6rdsm1v101fem2i8@group.calendar.google.com/events?key=AIzaSyBTWrK5hUt9yZ_zta3AUoKorBTHeW2fBlc", function(allData) {
-        console.log("CALENDAAAAAAAAAAAAAAAAAAR")
-        console.log(allData)
-    });
-    
-
 }
 
-ko.applyBindings(new EventListViewModel());
+function Event(data) {
+    this.summary = ko.observable(data.summary);
+}
+
+ko.applyBindings(new GroupListViewModel());

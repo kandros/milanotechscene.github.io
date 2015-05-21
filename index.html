@@ -139,7 +139,7 @@
                 </div>
             </div>
             <div class="row">
-                <div data-bind="foreach: events, visible: events().length > 0">
+                <div data-bind="foreach: groups, visible: groups().length > 0">
                     <div class="col-md-4 col-sm-6 portfolio-item">
                         <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                             <div class="portfolio-hover">
@@ -160,6 +160,11 @@
     </section>
 
     <!-- Events Section -->
+                <div data-bind="foreach: events, visible: events().length > 0">
+                  <h4 data-bind="text: summary"></h4>
+                </div>
+
+
     <section id="about">
         <div class="container">
             <div class="row">
@@ -590,7 +595,6 @@
     <!-- Knockout Javascript-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
     <script src="js/groups.js"></script>
-    <script src="js/calendar.js"></script>
 
     <script>
       window.intercomSettings = {
