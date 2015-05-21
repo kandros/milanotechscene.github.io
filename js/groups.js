@@ -1,5 +1,5 @@
 function Event(data) {
-    this.title = ko.observable(data.name);
+    this.name = ko.observable(data.name);
 }
 
 function EventListViewModel() {

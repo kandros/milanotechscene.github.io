@@ -35,6 +35,7 @@
 
 <body id="page-top" class="index">
 
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -90,6 +91,13 @@
 
     <!-- Services Section -->
     <section id="services">
+    
+<ul data-bind="foreach: events, visible: events().length > 0">
+    <li>
+        <input data-bind="value: name" />
+    </li>
+</ul>
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
