@@ -24,6 +24,8 @@ function GroupListViewModel() {
 
 function Event(data) {
     this.summary = ko.observable(data.summary);
+    this.date = ko.observable(data.start.dateTime);
+    this.description = ko.observable(data.description);
 }
 
 ko.applyBindings(new GroupListViewModel());
