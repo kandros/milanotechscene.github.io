@@ -2,6 +2,7 @@ function Group(data) {
     this.name = ko.observable(data.name);
     this.logo = ko.observable(data.logo);
     this.url = ko.observable(data.url);
+    this.topics = ko.observable(data.topics)
 }
 
 function Event(data) {
