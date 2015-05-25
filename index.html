@@ -145,7 +145,7 @@
                 <div data-bind="foreach: groups, visible: groups().length > 0">
                     <div class="col-md-4 col-sm-6 portfolio-item">
                       <a data-bind="attr: { href: url, target: '_blank'}" >
-                        <img data-bind="attr: { src: logo }" class="img-responsive" alt="">
+                        <img data-bind="attr: { src: logo }" class="img-responsive center-block" alt="">
                       </a>
                         <div class="portfolio-caption">
                             <h4 data-bind="text: name">GROUP NAME BROKEN</h4>
@@ -171,7 +171,8 @@
                     <ul class="timeline" data-bind="foreach: events, visible: events().length > 0">
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h3 data-bind="text: moment(date()).format('MMMM Do')">25th</h3>
+                                <h3 data-bind="text: moment(date()).format('MMMM')"></h3>
+                                <h4 data-bind="text: moment(date()).format('D')"></h4>
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -184,13 +185,9 @@
                             </div>
                         </li>
                     </ul>
-                    <ul class="timeline">
-                       <li class="timeline-inverted">
-                             <div class="timeline-image">
-                                <h4><a class="cta calendar" href="http://bit.ly/MiTechSceneCal">Check<br>the complete<br>Calendar</a></h4>
-                             </div>
-                         </li>
-                    </ul>
+                    <div class="cta calendar">
+                      <a class="btn btn-primary" href="http://bit.ly/MiTechSceneCal">Check the complete Calendar</a>
+                    </div>
                 </div>
             </div>
         </div>
