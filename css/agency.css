@@ -463,27 +463,6 @@ section h3.section-subheading {
 .timeline .timeline-body > ul {
   margin-bottom: 0;
 }
-@media (min-width: 240px) {
-  .timeline > li {
-    min-height: 150px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px;
-  }
-  .timeline > li .timeline-image {
-    width: 60px;
-    height: 60px;
-    margin-left: -30px;
-  }
-  .timeline > li .timeline-image h4 {
-    font-size: 14px;
-    margin-top: 10px;
-    line-height: 16px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 20px 20px;
-  }
-}
 @media (min-width: 768px) {
   .timeline:before {
     left: 50%;
