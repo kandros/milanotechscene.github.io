@@ -14,6 +14,8 @@ function Event(data) {
 
 function GroupListViewModel() {
     var self = this;
+    self.showContactForm = ko.observable(true)
+    self.showThankYou = ko.observable(false)
     self.groups = ko.observableArray([]);
     self.email = ko.observable();
     self.firstName = ko.observable();
@@ -42,6 +44,8 @@ function GroupListViewModel() {
             lastname: self.lastName(),
             name: self.name()
         });
+        self.showContactForm(false)
+        self.showThankYou(true)
     };
 
 }
