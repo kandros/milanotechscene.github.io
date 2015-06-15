@@ -1,3 +1,6 @@
+// was: 'https://milanotechscene.apispark.net/v1/groups'
+var GROUPS_URL = 'https://gist.githubusercontent.com/stefanobaghino/6fed6b8fdf1731fb9957/raw/0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc/groups.json';
+
 function Group(data) {
     this.name = ko.observable(data.name);
     this.logo = ko.observable(data.logo);
@@ -24,7 +27,7 @@ function GroupListViewModel() {
         return this.firstName() + " " + this.lastName();
     }, this);
 
-    $.getJSON("https://milanotechscene.apispark.net/v1/groups", function(allData) {
+    $.getJSON(GROUPS_URL, function(allData) {
         var mappedGroups = $.map(allData, function(item) { return new Group(item) });
         self.groups(mappedGroups);
     });
