@@ -1,5 +1,5 @@
 // was: 'https://milanotechscene.apispark.net/v1/groups'
-var GROUPS_URL = 'data/groups.json':
+var GROUPS_URL = 'data/groups.json';
 
 function Group(data) {
     this.name = ko.observable(data.name);
