@@ -20,3 +20,6 @@ twitter4j.properties
 .project
 .classpath
 .settings
+
+# JetBrains IDEs specific
+.idea
