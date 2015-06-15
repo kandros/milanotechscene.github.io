@@ -490,7 +490,7 @@ section h3.section-subheading {
   }
   .timeline > li {
     margin-bottom: 100px;
-    min-height: 100px;
+    min-height: 110px;
   }
   .timeline > li .timeline-panel {
     width: 41%;
@@ -505,8 +505,8 @@ section h3.section-subheading {
     margin-left: -50px;
   }
   .timeline > li .timeline-image h4 {
-    font-size: 13px;
-    margin-top: 16px;
+    font-size: 44px;
+    margin-top: 20px;
     line-height: 18px;
   }
   .timeline > li.timeline-inverted > .timeline-panel {
