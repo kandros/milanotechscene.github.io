@@ -1,6 +1,3 @@
-// was: 'https://milanotechscene.apispark.net/v1/groups'
-var GROUPS_URL = 'data/groups.json';
-
 function Group(data) {
     this.name = ko.observable(data.name);
     this.logo = ko.observable(data.logo);
@@ -27,7 +24,7 @@ function GroupListViewModel() {
         return this.firstName() + " " + this.lastName();
     }, this);
 
-    $.getJSON(GROUPS_URL, function(allData) {
+    $.getJSON('https://www.googledrive.com/host/0B5ENAUFZNl-YLXpKTHJ3cmY4ZGc', function(allData) {
         var mappedGroups = $.map(allData, function(item) { return new Group(item) });
         self.groups(mappedGroups);
     });
