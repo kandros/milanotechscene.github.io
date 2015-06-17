@@ -51,7 +51,7 @@ h6 {
   background-color: #222222;
 }
 .btn-primary {
-  color: white;
+  color: #ffffff;
   background-color: #fed136;
   border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -63,7 +63,7 @@ h6 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: white;
+  color: #ffffff;
   background-color: #fec503;
   border-color: #f6bf01;
 }
@@ -92,10 +92,10 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-primary .badge {
   color: #fed136;
-  background-color: white;
+  background-color: #ffffff;
 }
 .btn-xl {
-  color: white;
+  color: #ffffff;
   background-color: #fed136;
   border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -110,7 +110,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-  color: white;
+  color: #ffffff;
   background-color: #fec503;
   border-color: #f6bf01;
 }
@@ -139,7 +139,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .btn-xl .badge {
   color: #fed136;
-  background-color: white;
+  background-color: #ffffff;
 }
 .navbar-default {
   background-color: #222222;
@@ -147,7 +147,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-default .navbar-brand {
   color: #fed136;
-  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+  font-family: "Dosis", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
