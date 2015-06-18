@@ -48,6 +48,11 @@ function GroupListViewModel() {
         self.showThankYou(true)
     };
 
+    // ko.components.register('profile', { require: 'dist/js/components/profile' });
+
 }
 
-ko.applyBindings(new GroupListViewModel());
+var viewModel = new GroupListViewModel()
+pager.extendWithPage(viewModel);
+ko.applyBindings(viewModel);
+pager.start();
