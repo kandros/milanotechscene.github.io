@@ -7,8 +7,7 @@ KnockoutJS
 GitHub and GitHub Pages
 ApiSpark
 Google Spreadsheet
-Zapier
-Mailjet
+Intercom.io
 
 ## Credits
 
