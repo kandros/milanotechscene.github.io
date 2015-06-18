@@ -84,7 +84,9 @@
                 <div data-bind="foreach: groups, visible: groups().length > 0">
                     <div class="col-md-4 col-sm-6 portfolio-item">
                       <a data-bind="attr: { href: url, target: '_blank'}" >
-                        <img data-bind="attr: { src: logo }" class="img-responsive center-block" alt="">
+                        <div class="center-block" style="height:360px;background-color:white">
+                          <img data-bind="attr: { src: logo }" class="img-responsive" alt="">
+                        </div>
                       </a>
                         <div class="portfolio-caption">
                             <h4 data-bind="text: name">GROUP NAME BROKEN</h4>
