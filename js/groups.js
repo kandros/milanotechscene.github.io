@@ -26,6 +26,7 @@ function GroupListViewModel() {
 
     $.getJSON('https://www.googledrive.com/host/0B5ENAUFZNl-YLXpKTHJ3cmY4ZGc', function(allData) {
         var mappedGroups = $.map(allData, function(item) { return new Group(item) });
+        mappedGroups.sort(function () { return .5 - Math.random(); });
         self.groups(mappedGroups);
     });
 
