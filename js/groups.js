@@ -24,10 +24,21 @@ function GroupListViewModel() {
         return this.firstName() + " " + this.lastName();
     }, this);
 
+    function shuffle(array) {
+        var counter = array.length, temp, index;
+        while (counter > 0) {
+            index = Math.floor(Math.random() * counter);
+            counter--;
+            temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
+        return array;
+    }
+
     $.getJSON('https://www.googledrive.com/host/0B5ENAUFZNl-YLXpKTHJ3cmY4ZGc', function(allData) {
         var mappedGroups = $.map(allData, function(item) { return new Group(item) });
-        mappedGroups.sort(function () { return .5 - Math.random(); });
-        self.groups(mappedGroups);
+        self.groups(shuffle(mappedGroups));
     });
 
     self.events = ko.observableArray([]);
