@@ -168,15 +168,18 @@ fieldset[disabled] .btn-xl.active {
   border-color: rgba(255, 255, 255, 0.02);
 }
 .navbar-default .navbar-toggle {
-  background-color: #fed136;
-  border-color: #fed136;
+  background-color: #222222;
+  border: 0;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: white;
+  background-color: #fed136;
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #fed136;
+  background-color: #222222;
 }
 .navbar-default .nav li a {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -298,9 +301,9 @@ section h3.section-subheading {
   font-size: 16px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
-  font-style: italic;
   font-weight: 400;
   margin-bottom: 75px;
+  line-height: 1.5;
 }
 @media (min-width: 768px) {
   section {
@@ -380,6 +383,8 @@ section h3.section-subheading {
   list-style: none;
   padding: 0;
   position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
 }
 .timeline:before {
   top: 0;
@@ -394,7 +399,7 @@ section h3.section-subheading {
 .timeline > li {
   margin-bottom: 50px;
   position: relative;
-  min-height: 50px;
+  min-height: 70px;
 }
 .timeline > li:before,
 .timeline > li:after {
@@ -428,7 +433,6 @@ section h3.section-subheading {
   margin-left: 0;
   width: 80px;
   height: 110px;
-  margin-left: -30px;
   position: absolute;
   z-index: 100;
   background-color: #f7f7f7;
@@ -465,9 +469,6 @@ section h3.section-subheading {
   border-right-width: 14px;
   left: -14px;
   right: auto;
-}
-.timeline > li:last-child {
-  margin-bottom: 0;
 }
 .timeline .timeline-heading h4 {
   margin-top: 0;

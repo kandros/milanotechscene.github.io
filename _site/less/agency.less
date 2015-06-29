@@ -108,14 +108,17 @@ h1, h2, h3, h4, h5, h6 {
 		border-color: fade(white, 2%);
 	}
 	.navbar-toggle {
-		background-color: @brand-primary;
-		border-color: @brand-primary;
+		background-color: @gray-darkest;
+		border: 0;
 		.icon-bar {
-			background-color: white;
+			background-color: @brand-primary;
+			width: 24px;
+			height: 3px;
+			border-radius: 2px;
 		}
 		&:hover,
 		&:focus {
-			background-color: @brand-primary;
+			background-color: @gray-darkest;
 		}
 	}
     .nav {
@@ -244,9 +247,9 @@ section {
 		font-size: 16px;
 		.serif-font;
 		text-transform: none;
-		font-style: italic;
 		font-weight: 400;
 		margin-bottom: 75px;
+		line-height: 1.5;
     }
 }
 
@@ -342,6 +345,8 @@ section {
     list-style: none;
     padding: 0;
     position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
     &:before {
         top: 0;
         bottom: 0;
@@ -355,7 +360,7 @@ section {
     > li {
         margin-bottom: 50px;
         position: relative;
-        min-height: 50px;
+        min-height: 70px;
         &:before,
         &:after {
             content: " ";
@@ -388,7 +393,6 @@ section {
 		  margin-left: 0;
 		  width: 80px;
 		  height: 110px;
-		  margin-left: -30px;
           position: absolute;
           z-index: 100;
           background-color: #f7f7f7;
@@ -425,9 +429,6 @@ section {
                 left: -14px;
                 right: auto;
             }
-        }
-        &:last-child {
-        	margin-bottom: 0;
         }
     }
 	.timeline-heading {
