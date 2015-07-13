@@ -7,7 +7,7 @@ function Group(data) {
 
 function Event(data) {
     var urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig;
-    data.description = data.description && data.description.replace(urlRegex, function (match) { return "<a href=\""+match+"\">"+match+"</a>"; }) || data.description;
+    data.description = data.description && data.description.replace(urlRegex, function (match) { return "<a target=\"_blank\" href=\""+match+"\">"+match+"</a>"; }) || data.description;
     this.summary = ko.observable(data.summary);
     this.date = ko.observable(data.start.dateTime);
     this.description = ko.observable(data.description);
