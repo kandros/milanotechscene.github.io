@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Join Milano Tech Scene Community</title>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
+</head>
+<body>
+   <div class="container">
+        <div class="jumbotron">
+          <h1>Join Milano Tech Scene</h1>
+        </div>  
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
+            <form class="form-horizontal" role="form" data-bind="submit: signup">
+              <div class="form-group">
+                <label for="email" class="col-lg-3 control-label">Email</label>
+                <input data-bind="value: email" id="email" class="input-lg" placeholder="dev@company.org"/>
+                <!-- <a href="#" class="btn btn-lg btn-default" data-bind="click: signup">Signup</a> -->
+                <button id="form-submit", type="submit" data-bind="enable: email.isValid">Signup</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/1.2.8/stamplay.min.js"></script>
+    <script src="js/knockout.validation.min.js"></script>
+    <script type="text/javascript">
+
+      var AppViewModel = function () {
+         var self = this;
+         self.email = ko.observable("").extend({ required: true, email: true });
+         self.signup = function() {
+            console.log(self.email.isValid());
+            var signup = new Stamplay.Cobject('signups').Model;
+            signup.set('email', self.email());
+            signup.set('tenant_id', '55d6fda073f308d62cd65195');
+            signup.save().then(function(){
+               swal("Thank you", "Welcome aboard", "success")
+            }, function(err){
+               console.log(err)
+            });
+         }
+      }
+
+      console.log("starting the app...");
+      Stamplay.init("pipelean");
+      var viewModel = new AppViewModel();
+      ko.applyBindings(viewModel);
+    </script>
+
+</body>
+</html>
