@@ -40,7 +40,7 @@
         var self = this;
         self.email = ko.observable("").extend({ email: true });
         self.signup = function() {
-          $.ajax('https://invito.apispark.net/v1/signups', {
+          $.ajax('https://api.invito.pipelean.com/v1/signups', {
               data: ko.toJSON({
                 email: self.email(),
                 tenant_id: '55d6fda073f308d62cd65195',
