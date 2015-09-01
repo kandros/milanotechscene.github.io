@@ -40,17 +40,31 @@
         var self = this;
 
         self.email = ko.observable("").extend({ required: true, email: true });
+        self.firstName = ko.observable("");
+        self.lastName = ko.observable("");
+        self.name = ko.computed(function() {
+          return this.firstName() + " " + this.lastName();
+        }, this);
+
 
         self.signup = function() {
-          self.send(self.email());
+          self.send();
+          Intercom('boot', {
+            app_id: "h5m9iozj",
+            email: self.email(),
+            firstname: self.firstName(),
+            lastname: self.lastName(),
+            name: self.name()
+          });
         }
 
         self.send = function(email) {
           axios.post('https://invito.apispark.net/v1/signups', {
-            email: email,
+            email: self.email(),
             owner: '55e56d9bd2f47e503cd67b8d',
-            // firstName: response.firstname,
-            // lastName: response.lastname
+            firstname: self.firstName(),
+            lastname: self.lastName(),
+            name: self.name(),
           })
           .then(function (response) {
             console.log(response);
@@ -65,6 +79,8 @@
 
       ko.applyBindings(new AppViewModel());
     </script>
+
+        <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/h5m9iozj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 
 </body>
 </html>
