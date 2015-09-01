@@ -5,6 +5,7 @@
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" rel="stylesheet">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
+   <link href="css/agency.css" rel="stylesheet">
 </head>
 <body>
    <div class="container">
@@ -16,11 +17,10 @@
           </div>
           <div class="col-md-6">
             <form class="form-horizontal" role="form" data-bind="submit: signup">
-              <div class="form-group">
-                <label for="email" class="col-lg-3 control-label">Email</label>
-                <input data-bind="value: email" id="email" type-"email" class="input-lg" placeholder="dev@company.org"/>
-                <!-- <a href="#" class="btn btn-lg btn-default" data-bind="click: signup">Signup</a> -->
-                <button id="form-submit", type="submit">Signup</button>
+              <div class="form-group" >
+                <label for="email" class="col-lg-3 control-label"><h4></h4></label>
+                <input data-bind="value: email, valueUpdate:'input'" id="email" type="email" class="input-lg" placeholder="Your email"/>
+                <button id="form-submit" type="submit" data-bind="enable: email.isValid()" class="btn btn-lg btn-primary">Signup</button>
               </div>
             </form>
           </div>
@@ -34,29 +34,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
     <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/1.2.8/stamplay.min.js"></script>
     <script src="js/knockout.validation.min.js"></script>
-    <script type="text/javascript">
-
-      var AppViewModel = function () {
+    <script src="js/axios.min.js"></script>
+    <script type="text/javascript"
+>      var AppViewModel = function () {
         var self = this;
-        self.email = ko.observable("").extend({ email: true });
+
+        self.email = ko.observable("").extend({ required: true, email: true });
+
         self.signup = function() {
-          $.ajax('https://api.invito.pipelean.com/v1/signups', {
-              data: ko.toJSON({
-                email: self.email(),
-                tenant_id: '55d6fda073f308d62cd65195',
-                owner: '55d6fda073f308d62cd65195'
-              }),
-              type: "post", contentType: "application/json",
-              success: function(result) {
-                  console.log("new signup success: " + result._id)
-              }
+          self.send(self.email());
+        }
+
+        self.send = function(email) {
+          axios.post('https://invito.apispark.net/v1/signups', {
+            email: email,
+            owner: '55e422c2f4e0d31e2ba27158',
+            // firstName: response.firstname,
+            // lastName: response.lastname
+          })
+          .then(function (response) {
+            console.log(response);
+            swal("Welcome to Milano Tech Scene", "Enjoy the networking", "success")
+          })
+          .catch(function (response) {
+            console.log(response);
+            swal("Oops", "Something went wrong", "warning")
           });
         }
       }
 
-      console.log("starting the app...");
-      var viewModel = new AppViewModel();
-      ko.applyBindings(viewModel);
+      ko.applyBindings(new AppViewModel());
     </script>
 
 </body>
