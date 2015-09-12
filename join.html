@@ -48,18 +48,18 @@
           Intercom('boot', {
             app_id: "h5m9iozj",
             email: self.email(),
-            first_name: self.firstName(),
-            last_name: self.lastName(),
+            firstname: self.firstName(),
+            lastname: self.lastName(),
             name: self.name()
           });
         }
 
-        self.send = function(email) {
+        self.send = function() {
           axios.post('https://invito.apispark.net/v1/signups', {
             email: self.email(),
             owner: '55d5e49e4b6552892c51e552',
-            firstname: self.firstName(),
-            lastname: self.lastName(),
+            first_name: self.firstName(),
+            last_name: self.lastName(),
             name: self.name(),
           })
           .then(function (response) {
