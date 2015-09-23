@@ -19,12 +19,6 @@ function GroupListViewModel() {
     self.showContactForm = ko.observable(true)
     self.showThankYou = ko.observable(false)
     self.groups = ko.observableArray([]);
-    self.email = ko.observable();
-    self.firstName = ko.observable();
-    self.lastName = ko.observable();
-    self.name = ko.computed(function() {
-        return this.firstName() + " " + this.lastName();
-    }, this);
 
     function shuffle(array) {
         var counter = array.length, temp, index;
@@ -49,20 +43,6 @@ function GroupListViewModel() {
         var mappedEvents = $.map(allData.items, function(item) { return new Event(item) });
         self.events(mappedEvents);
     });
-
-    self.save = function() {
-        Intercom('boot', {
-            app_id: "h5m9iozj",
-            email: self.email(),
-            firstname: self.firstName(),
-            lastname: self.lastName(),
-            name: self.name()
-        });
-        self.showContactForm(false)
-        self.showThankYou(true)
-    };
-
-    // ko.components.register('profile', { require: 'dist/js/components/profile' });
 
 }
 
