@@ -4,27 +4,90 @@
    <title>Join Milano Tech Scene Community</title>
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.1/bootstrap-social.min.css" rel="stylesheet">
+   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
-   <link href="css/agency.css" rel="stylesheet">
+   <link href="css/agency.css" rel="stylesheet" type="text/css" />
+   <link href="css/mts.css" rel="stylesheet" type="text/css" />
+   <link href="css/narros.css" rel="stylesheet" type="text/css" />
+
+     <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+    <link href="img/mts.png" rel="icon" type="image/png" />
+
+
 </head>
 <body>
    <div class="container">
-        <div class="jumbotron">
-          <h1>Join Milano Tech Scene</h1>
-        </div>  
+
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="http://medium.com/milano-tech-scene">Blog</a></li>
+            <li role="presentation"><a href="http://twitter.com/milanotechscene">Twitter</a></li>
+          </ul>
+        </nav>
+        <a href="index.html"><h3 class="text-muted">Miano Tech Scene</h3></a>
+        <!-- <a class="navbar-brand page-scroll" href="#home"><img id="logo" src="img/mts.svg" alt="mts logo"><span>milano tech scene</span></a> -->
+      </div>
+
+      <div class="jumbotron">
+        <h2>Milano Tech Scene</h2>
+        <h4>The single point of access for all Tech communities in Milano</h4>
+      </div>
+
         <div class="row">
           <div class="col-md-3">
           </div>
           <div class="col-md-6">
             <form class="form-horizontal" role="form" data-bind="submit: signup">
               <div class="form-group" >
-                <label for="email" class="col-lg-3 control-label"><h4></h4></label>
-                <input data-bind="value: email, valueUpdate:'input'" id="email" type="email" class="input-lg" placeholder="Your email"/>
+                <input data-bind="value: email, valueUpdate:'input'" id="email" type="email" class="input-lg" placeholder="Email"/>
+              </div>
+              <div class="form-group">  
+                <input data-bind="value: firstName, valueUpdate:'input'" id="firstName" class="input-lg" placeholder="First Name"/>
+              </div>
+              <div class="form-group">
+                <input data-bind="value: lastName, valueUpdate:'input'" id="lastName" class="input-lg" placeholder="Last Name"/>
+              </div>
+              <div class="form-group">
                 <button id="form-submit" type="submit" data-bind="enable: email.isValid()" class="btn btn-lg btn-primary">Signup</button>
               </div>
             </form>
+            </div>
           </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Slack</h4>
+          <p>We geek around on a dedicated slack team. Is open for everyone. Behave. </p>
+
+          <h4>Calendar</h4>
+          <p>All events conveniently wrapped up in one calendar</p>
+
         </div>
+
+        <div class="col-lg-6">
+          <h4>Stay up to date</h4>
+          <p>As we grow, we'll send occasional newsletters about activities, events or to hear your opinion</p>
+
+          <h4>Tech Firm</h4>
+          <p>We want to help the conversation between developer and companies. <a href="mailto:staff@milanotechscene.it">Write us directly</a></p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>&copy; Milano Tech Scene 2015</p>
+    </footer>
+
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
@@ -36,8 +99,8 @@
         var self = this;
 
         self.email = ko.observable("").extend({ required: true, email: true });
-        self.firstName = ko.observable("");
-        self.lastName = ko.observable("");
+        self.firstName = ko.observable("").extend({ required: true });
+        self.lastName = ko.observable("").extend({ required: true });
         self.name = ko.computed(function() {
           return this.firstName() + " " + this.lastName();
         }, this);
