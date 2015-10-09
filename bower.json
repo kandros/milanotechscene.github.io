@@ -1,0 +1,24 @@
+{
+  "name": "milanotechscene.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/MilanoTechScene/milanotechscene.github.io",
+  "authors": [
+    "Daniele Dellafiore <ildella@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pagerjs": "~1.0.1",
+    "jquery": "~1.11.3"
+  }
+}
