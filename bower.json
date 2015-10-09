@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "pagerjs": "~1.0.1",
-    "jquery": "~1.11.3"
+    "jquery": "~1.11.3",
+    "ko-component-router": "~2.1.0"
   }
 }

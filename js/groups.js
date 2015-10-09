@@ -45,8 +45,12 @@ function GroupListViewModel() {
     });
 
 }
-
+// use HTML5 history
+pager.useHTML5history = true;
+// use History instead of history
+pager.Href5.history = History;
 var viewModel = new GroupListViewModel()
 pager.extendWithPage(viewModel);
 ko.applyBindings(viewModel);
-pager.start();
+// pager.start();
+pager.startHistoryJs();

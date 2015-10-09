@@ -26,3 +26,8 @@ twitter4j.properties
 
 # OS X specific
 .DS_Store
+
+#Disvhot CDN specific
+.divshot-cache
+
+bower_components

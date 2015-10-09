@@ -26,6 +26,7 @@
    <link href="img/mts.png" rel="icon" type="image/png" />
 </head>
 <body id="page-top" class="index">
+   <!-- <base href="http://development.milanotechscene.divshot.io/"/> -->
 
    <!-- Navigation -->
    <nav class="navbar navbar-default navbar-fixed-top">
@@ -48,7 +49,7 @@
                   <a href="#page-top"></a>
                </li>
                <li>
-                  <a href="#calendar">Calendar</a>
+                  <a href="!#/calendar">Calendar</a>
                </li>
                <li>
                   <a href="#manifesto">Manifesto</a>
@@ -69,33 +70,32 @@
    <!-- Pages -->
    <div id="page-wrapper">
      <div data-bind="page: {id: 'home', title: 'MilanoTechScene', sourceOnShow: 'pages/home.html', role: 'start' }"></div>
-     <div data-bind="page: {id: 'manifesto', title: 'MilanoTechScene - Manifesto', sourceOnShow: 'pages/manifesto.html' }"></div>
-     <div data-bind="page: {id: 'calendar', title: 'MilanoTechScene - Calendar', sourceOnShow: 'pages/calendar.html' }"></div>
-     <div data-bind="page: {id: 'join', title: 'MilanoTechScene - Join', sourceOnShow: 'pages/join.html' }"></div>
-     <div data-bind="page: {id: '?', sourceOnShow: 'pages/error.html'}"></div>
+     <div data-bind="page: {id: 'manifesto', title: 'MilanoTechScene - Manifesto', sourceOnShow: 'pages/manifesto.html', fx: 'fade' }"></div>
+     <div data-bind="page: {id: 'calendar', title: 'MilanoTechScene - Calendar', sourceOnShow: 'pages/calendar.html', fx: 'fade' }"></div>
+     <!-- <div data-bind="page: {id: '?', sourceOnShow: 'pages/error.html'}"></div> -->
    </div>
 
    <!-- Footer -->
    <footer>
-     <div class="container">
+      <div class="container">
          <div class="row">
-             <div class="col-md-4">
-                 <span class="copyright">Made by nice people in Milano, 2015</span>
-             </div>
-             <div class="col-md-4">
-                 <ul class="list-inline social-buttons">
-                     <li><a href="http://twitter.com/milanotechscene"><i class="fa fa-twitter"></i></a>
-                     </li>
-                     <li><a href="http://facebook.com/milanotechscene"><i class="fa fa-facebook"></i></a>
-                     </li>
-                 </ul>
-             </div>
-             <div class="col-md-4">
-                 <ul class="list-inline quicklinks">
-                     <li><a href="#manifesto">Manifesto</a>
-                     </li>
-                 </ul>
-             </div>
+            <div class="col-md-4">
+              <span class="copyright">Made by nice people in Milano, 2015</span>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline social-buttons">
+                  <li><a href="http://twitter.com/milanotechscene"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li><a href="http://facebook.com/milanotechscene"><i class="fa fa-facebook"></i></a>
+                  </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline quicklinks">
+                  <li><a href="#manifesto">Manifesto</a>
+                  </li>
+              </ul>
+            </div>
          </div>
          <div class="row">
              <div class="col-md-4">
