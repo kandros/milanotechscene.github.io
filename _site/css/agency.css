@@ -51,7 +51,7 @@ h6 {
   background-color: #222222;
 }
 .btn-primary {
-  color: #ffffff;
+  color: white;
   background-color: #fed136;
   border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -63,7 +63,7 @@ h6 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: #ffffff;
+  color: white;
   background-color: #fec503;
   border-color: #f6bf01;
 }
@@ -92,10 +92,10 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-primary .badge {
   color: #fed136;
-  background-color: #ffffff;
+  background-color: white;
 }
 .btn-xl {
-  color: #ffffff;
+  color: white;
   background-color: #fed136;
   border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -110,7 +110,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-  color: #ffffff;
+  color: white;
   background-color: #fec503;
   border-color: #f6bf01;
 }
@@ -139,7 +139,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .btn-xl .badge {
   color: #fed136;
-  background-color: #ffffff;
+  background-color: white;
 }
 .navbar-default {
   background-color: #222222;
@@ -204,6 +204,13 @@ fieldset[disabled] .btn-xl.active {
   color: white;
   background-color: #fec503;
 }
+
+@media(max-width: 768px) {
+  .timeline .timeline-image h3 {
+      font-size: 11px;
+  }
+}
+
 @media (min-width: 768px) {
   .navbar-default {
     background-color: transparent;
@@ -318,6 +325,9 @@ section h3.section-subheading {
 #portfolio .portfolio-item {
   margin: 0 0 15px;
   right: 0;
+}
+#portfolio .portfolio-item .portfolio-image-container {
+  overflow: hidden;
 }
 #portfolio .portfolio-item .portfolio-link {
   display: block;
@@ -777,4 +787,7 @@ body {
 }
 .cta.calendar {
   text-align: center;
+}
+.validationMessage {
+  display: none;
 }
