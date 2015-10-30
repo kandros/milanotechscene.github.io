@@ -148,7 +148,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-brand {
   color: #fff;
   font-weight: 300;
-  min-width: 300px;
+  min-width: 270px;
   font-family: "Dosis", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .navbar-default .navbar-brand #logo {
