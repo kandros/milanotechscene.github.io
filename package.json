@@ -17,9 +17,15 @@
   },
   "homepage": "https://github.com/kandros/milanotechscene.github.io#readme",
   "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.0.14",
     "babel-loader": "^6.0.0",
     "babel-preset-react": "^6.0.14",
+    "css-loader": "^0.21.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "node-sass": "^3.4.1",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.2"
   },
   "dependencies": {

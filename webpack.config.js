@@ -1,3 +1,5 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
   devtool: "source-map",
   entry: ["./App/App.js", "./public/timeline.js", "./public/main.js"],
@@ -14,7 +16,16 @@ module.exports = {
           cacheDirectory: true,
           presets: ['react']
         }
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('public/style.css', {
+        allChunks: true
+    })
+  ]
 };

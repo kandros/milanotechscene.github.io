@@ -1,3 +1,5 @@
+require('./groups.scss');
+
 var React = require('react');
 var Group = require('./Group');
 

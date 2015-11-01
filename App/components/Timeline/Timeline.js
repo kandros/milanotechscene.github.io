@@ -1,3 +1,5 @@
+require('./timeline.scss');
+
 var React = require('react');
 var Event = require('./Event.js');
 
