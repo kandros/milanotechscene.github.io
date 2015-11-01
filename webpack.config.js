@@ -1,10 +1,11 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 
 module.exports = {
-  devtool: "source-map",
-  entry: ["./App/App.js", "./public/timeline.js", "./public/main.js"],
+  devtool: 'source-map',
+  entry: ['./App/App.js', './public/timeline.js', './public/main.js'],
   output: {
-    filename: "public/bundle.js"
+    filename: 'public/bundle.js'
   },
   module: {
     loaders: [
@@ -19,13 +20,14 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
+        loaders: ['style', 'css', 'autoprefixer', 'sass']
+        // loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin('public/style.css', {
-        allChunks: true
-    })
-  ]
+  }
+  // plugins: [
+  //   new ExtractTextPlugin('public/style.css', {
+  //       allChunks: true
+  //   })
+  // ]
 };
