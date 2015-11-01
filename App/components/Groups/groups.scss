@@ -1,4 +1,63 @@
 #groups {
   padding-top: 4rem;
+  padding-bottom: 3rem;
   background-color: #fff;
+  ul {
+    list-style: none;
+    padding-left: none;
+    margin: 0;
+    li {
+      width: 23%;
+      float: left;
+      height: 325px;
+      margin: 0 1% 2rem 1%;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+      border-radius: 0.35rem;
+      .group__logo {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      img {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0.35rem 0.35rem 0 0;
+      }
+      .event_desc {
+        padding: 1rem 7.5%;
+        h2 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 700;
+          color: #22292e;
+        }
+        .data_evento {
+          color: #9aaab5;
+          font-size: 0.9rem;
+          margin: 0.5rem 0 0.25rem 0;
+        }
+      }
+      &:hover {
+        img {
+          opacity: 0.8;
+        }
+        .event_desc h2 {
+          color: #d2674e;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+  #groups ul li {
+    width: 100%;
+    font-size: 3em;
+    p {
+      font-size: 3em;
+    }
+  }
 }

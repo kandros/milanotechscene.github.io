@@ -9,7 +9,7 @@ var Timeline = React.createClass({
       return <Event event={event} key={index} />
     });
     return (
-      <section id="cd-timeline" className="cd-container">
+      <section id='cd-timeline' className='cd-container'>
           {events}
       </section>
     )
