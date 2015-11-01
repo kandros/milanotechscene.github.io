@@ -1,0 +1,33 @@
+{
+  "name": "milanotechscene.github.io",
+  "version": "2.0.0",
+  "description": "Website for milanotechscene community",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kandros/milanotechscene.github.io.git"
+  },
+  "author": "kandros5591@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kandros/milanotechscene.github.io/issues"
+  },
+  "homepage": "https://github.com/kandros/milanotechscene.github.io#readme",
+  "devDependencies": {
+    "babel-core": "^6.0.14",
+    "babel-loader": "^6.0.0",
+    "babel-preset-react": "^6.0.14",
+    "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "axios": "^0.7.0",
+    "jquery": "^2.1.4",
+    "modernizr": "^3.2.0",
+    "moment": "^2.10.6",
+    "react": "^0.14.1",
+    "react-dom": "^0.14.1"
+  }
+}
