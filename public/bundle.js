@@ -40905,7 +40905,7 @@
 	
 	
 	// module
-	exports.push([module.id, "#groups {\n  padding-top: 4rem;\n  padding-bottom: 3rem;\n  background-color: #fff; }\n  #groups ul {\n    list-style: none;\n    padding-left: none;\n    margin: 0; }\n    #groups ul .group {\n      width: 23%;\n      float: left;\n      height: 300px;\n      margin: 0 1% 2rem 1%;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n      border-radius: 0.35rem; }\n      #groups ul .group .group__logo {\n        height: 225px;\n        overflow: hidden; }\n        #groups ul .group .group__logo img {\n          width: 100%;\n          max-width: 100%;\n          border-radius: 0.35rem 0.35rem 0 0; }\n        #groups ul .group .group__logo--v-center {\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          -webkit-box-pack: center;\n          -webkit-justify-content: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          overflow: hidden; }\n      #groups ul .group .group__info {\n        padding: 0.7rem 7.5%; }\n        #groups ul .group .group__info h2 {\n          margin: 0;\n          font-size: 1rem;\n          font-weight: 700;\n          color: #22292e; }\n        #groups ul .group .group__info .group__topics {\n          color: #9aaab5;\n          font-size: 0.8rem;\n          margin: 0.5rem 0 0.25rem 0; }\n      #groups ul .group:hover img {\n        opacity: 0.8; }\n      #groups ul .group:hover .group__info h2 {\n        color: #d2674e; }\n\n@media only screen and (min-width: 320px) and (max-width: 500px) {\n  #groups ul .group {\n    width: 100%;\n    font-size: 3em; }\n    #groups ul .group p {\n      font-size: 3em; } }\n", ""]);
+	exports.push([module.id, "#groups {\n  padding-top: 4rem;\n  padding-bottom: 3rem;\n  background-color: #fff; }\n  #groups ul {\n    list-style: none;\n    padding-left: none;\n    margin: 0; }\n    #groups ul .group {\n      width: 23%;\n      float: left;\n      height: 300px;\n      margin: 0 1% 2rem 1%;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n      border-radius: 0.35rem; }\n      #groups ul .group .group__logo {\n        height: 225px;\n        overflow: hidden; }\n        #groups ul .group .group__logo img {\n          width: 100%;\n          max-width: 100%;\n          border-radius: 0.35rem 0.35rem 0 0; }\n        #groups ul .group .group__logo--v-center {\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          -webkit-box-pack: center;\n          -webkit-justify-content: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          overflow: hidden; }\n      #groups ul .group .group__info {\n        padding: 0.7rem 7.5%; }\n        #groups ul .group .group__info h2 {\n          margin: 0;\n          font-size: 16px;\n          font-weight: 700;\n          color: #22292e; }\n        #groups ul .group .group__info .group__topics {\n          color: #9aaab5;\n          font-size: 0.8rem;\n          margin: 0.5rem 0 0.25rem 0; }\n      #groups ul .group:hover img {\n        opacity: 0.8; }\n      #groups ul .group:hover .group__info h2 {\n        color: #d2674e; }\n\n@media only screen and (min-width: 320px) and (max-width: 500px) {\n  #groups ul .group {\n    width: 100%;\n    font-size: 3em; }\n    #groups ul .group p {\n      font-size: 3em; } }\n", ""]);
 	
 	// exports
 
@@ -40915,31 +40915,34 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(2);
-	
+	var normalizeGroup = __webpack_require__(275);
 	var Group = React.createClass({
+	  componentDidMount: function () {
+	    normalizeGroup();
+	  },
 	  render: function () {
 	    return React.createElement(
-	      "a",
-	      { href: this.props.groupInfo.url, target: "_blank" },
+	      'a',
+	      { href: this.props.groupInfo.url, target: '_blank' },
 	      React.createElement(
-	        "li",
-	        { className: "group" },
+	        'li',
+	        { className: 'group' },
 	        React.createElement(
-	          "div",
-	          { className: "group__logo" },
-	          React.createElement("img", { src: this.props.groupInfo.logo })
+	          'div',
+	          { className: 'group__logo' },
+	          React.createElement('img', { src: this.props.groupInfo.logo })
 	        ),
 	        React.createElement(
-	          "div",
-	          { className: "group__info" },
+	          'div',
+	          { className: 'group__info' },
 	          React.createElement(
-	            "h2",
-	            null,
+	            'h2',
+	            { className: 'group__name' },
 	            this.props.groupInfo.name
 	          ),
 	          React.createElement(
-	            "p",
-	            { className: "group__topics" },
+	            'p',
+	            { className: 'group__topics' },
 	            this.props.groupInfo.topics
 	          )
 	        )
@@ -41898,6 +41901,24 @@
 	    }
 	  });
 	})(__webpack_require__(256));
+
+/***/ },
+/* 275 */
+/***/ function(module, exports) {
+
+	function normalizeGroup() {
+	
+	  var titles = $('.group__name');
+	  titles.each(function () {
+	    var titleLength = $(this).html().length;
+	    if (titleLength > 19) {
+	      $(this).css({
+	        fontSize: '12px'
+	      });
+	    }
+	  });
+	}
+	module.exports = normalizeGroup;
 
 /***/ }
 /******/ ]);
