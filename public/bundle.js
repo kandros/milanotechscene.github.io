@@ -69,29 +69,29 @@
 	  componentDidMount: function () {
 	    var that = this;
 	    var urlEvents = "https://www.googleapis.com/calendar/v3/calendars/3nctrbqaukrc5i8g6j7d54b9q4@group.calendar.google.com/events?key=AIzaSyBP-eVlQhmfD0Ml630CHwWxsv27k14zjfc&maxResults=5&singleEvents=true&orderBy=startTime&timeMin=" + moment().format('YYYY-MM-DD') + "T00%3A00%3A00%2B00%3A00";
-	    console.log(urlEvents);
+	    // console.log(urlEvents);
 	    axios.get(urlEvents).then(function (response) {
 	      var events = response.data.items;
-	      console.log(events);
+	      // console.log(events);
 	      that.setState({
 	        events: events
 	      });
 	    }).catch(function (response) {
-	      console.log(response);
+	      // console.log(response);
 	    });
-	    console.log(this.state.groups);
+	    // console.log(this.state.groups)
 	
 	    var urlGroups = "https://b458e59e35ebffd6ffbbc3d4bbfb6c0c6b100f6a-www.googledrive.com/host/0B5ENAUFZNl-YLXpKTHJ3cmY4ZGc";
 	    axios.get(urlGroups).then(function (response) {
 	      var groups = response.data;
-	      console.log(groups);
+	      // console.log(groups);
 	      that.setState({
 	        groups: groups
 	      });
 	    }).catch(function (response) {
 	      console.log(response);
 	    });
-	    console.log(this.state.groups);
+	    // console.log(this.state.groups);
 	  },
 	  render: function () {
 	    return React.createElement(
@@ -40905,7 +40905,7 @@
 	
 	
 	// module
-	exports.push([module.id, "#groups {\n  padding-top: 4rem;\n  padding-bottom: 3rem;\n  background-color: #fff; }\n  #groups ul {\n    list-style: none;\n    padding-left: none;\n    margin: 0; }\n    #groups ul .group {\n      width: 23%;\n      float: left;\n      height: 300px;\n      margin: 0 1% 2rem 1%;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n      border-radius: 0.35rem; }\n      #groups ul .group .group__logo {\n        height: 225px;\n        overflow: hidden; }\n        #groups ul .group .group__logo img {\n          width: 100%;\n          max-width: 100%;\n          border-radius: 0.35rem 0.35rem 0 0; }\n        #groups ul .group .group__logo--v-center {\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          -webkit-box-pack: center;\n          -webkit-justify-content: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          overflow: hidden; }\n      #groups ul .group .group__info {\n        padding: 0.7rem 7.5%; }\n        #groups ul .group .group__info h2 {\n          margin: 0;\n          font-size: 16px;\n          font-weight: 700;\n          color: #22292e; }\n        #groups ul .group .group__info .group__topics {\n          color: #9aaab5;\n          font-size: 0.8rem;\n          margin: 0.5rem 0 0.25rem 0; }\n      #groups ul .group:hover img {\n        opacity: 0.8; }\n      #groups ul .group:hover .group__info h2 {\n        color: #d2674e; }\n\n@media only screen and (min-width: 320px) and (max-width: 500px) {\n  #groups ul .group {\n    width: 100%;\n    font-size: 3em; }\n    #groups ul .group p {\n      font-size: 3em; } }\n", ""]);
+	exports.push([module.id, "#groups {\n  padding-top: 4rem;\n  padding-bottom: 3rem;\n  background-color: #fff; }\n  #groups ul {\n    list-style: none;\n    padding-left: none;\n    margin: 0; }\n    #groups ul .group {\n      width: 23%;\n      float: left;\n      height: 300px;\n      margin: 0 1% 2rem 1%;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n      border-radius: 0.35rem; }\n      #groups ul .group .group__logo {\n        height: 225px;\n        overflow: hidden; }\n        #groups ul .group .group__logo img {\n          width: 100%;\n          max-width: 100%;\n          border-radius: 0.35rem 0.35rem 0 0; }\n        #groups ul .group .group__logo.group__logo--v-center {\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          -webkit-box-pack: center;\n          -webkit-justify-content: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          overflow: hidden; }\n      #groups ul .group .group__info {\n        padding: 0.7rem 7.5%; }\n        #groups ul .group .group__info h2 {\n          margin: 0;\n          font-size: 16px;\n          font-weight: 700;\n          color: #22292e; }\n        #groups ul .group .group__info .group__topics {\n          color: #9aaab5;\n          font-size: 0.8rem;\n          margin: 0.5rem 0 0.25rem 0; }\n      #groups ul .group:hover img {\n        opacity: 0.8; }\n      #groups ul .group:hover .group__info h2 {\n        color: #d2674e; }\n\n@media only screen and (min-width: 320px) and (max-width: 500px) {\n  #groups ul .group {\n    width: 100%;\n    font-size: 3em; }\n    #groups ul .group p {\n      font-size: 3em; } }\n", ""]);
 	
 	// exports
 
@@ -41917,6 +41917,18 @@
 	      });
 	    }
 	  });
+	
+	  setTimeout(function () {
+	    var images = $('.group__logo');
+	    $.each(images, function () {
+	      var img = $(this).find('img');
+	      var nh = img.prop('height');
+	      console.log(nh);
+	      if (nh < 70) {
+	        $(this).addClass('group__logo--v-center');
+	      }
+	    });
+	  }, 3000);
 	}
 	module.exports = normalizeGroup;
 

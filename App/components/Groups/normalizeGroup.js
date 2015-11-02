@@ -10,5 +10,19 @@ function normalizeGroup() {
     }
   });
 
+
+setTimeout(function () {
+  var images = $('.group__logo');
+  $.each(images,function() {
+    var img = $(this).find('img');
+    var nh = img.prop('height');
+    console.log(nh);
+    if (nh < 70) {
+      $(this).addClass('group__logo--v-center');
+    }
+  });
+}, 3000);
+
+
 }
 module.exports = normalizeGroup;
