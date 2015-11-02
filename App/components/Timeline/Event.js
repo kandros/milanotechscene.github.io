@@ -1,7 +1,12 @@
 var React = require('react');
 var moment = require('moment');
+var initEventsEntryAnimation = require('./eventsEntryAnimation.js');
+
 
 var Event = React.createClass({
+  componentDidMount: function() {
+    initEventsEntryAnimation();
+  },
   render: function() {
     var momentDate = moment(this.props.event.start.dateTime, moment.ISO_8601);
     var date = momentDate.locale("it").format('dddd DD MMMM');
