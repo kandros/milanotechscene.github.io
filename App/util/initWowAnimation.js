@@ -1,6 +1,6 @@
 
-require('../../bower_components/wow/css/libs/animate.css');
-require('../../bower_components/wow/dist/wow.min.js');
+// require('../../bower_components/wow/css/libs/animate.css');
+// require('../../bower_components/wow/dist/wow.min.js');
 
 function initWowAnimation() {
   var wow = new WOW(
