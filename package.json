@@ -5,7 +5,10 @@
   "main": "public/index.html",
   "scripts": {
     "dev": "webpack -w",
-    "dist": "rm -rf ./__dist && mkdir __dist && webpack -p && cp -r ./public/* ./__dist/"
+    "build": "webpack",
+    "predist": "rm -rf ./__dist",
+    "dist": "mkdir __dist && webpack -p && cp -r ./public/* ./__dist/",
+    "env": "env"
   },
   "repository": {
     "type": "git",
