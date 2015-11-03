@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(274);
+	module.exports = __webpack_require__(276);
 
 
 /***/ },
@@ -55,50 +55,15 @@
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(159);
 	var Timeline = __webpack_require__(160);
-	var GroupsList = __webpack_require__(257);
-	var axios = __webpack_require__(261);
-	var moment = __webpack_require__(166);
+	var GroupsList = __webpack_require__(271);
 	
 	var Main = React.createClass({
-	  getInitialState: function () {
-	    return {
-	      events: [],
-	      groups: []
-	    };
-	  },
-	  componentDidMount: function () {
-	    var that = this;
-	    var urlEvents = "https://www.googleapis.com/calendar/v3/calendars/3nctrbqaukrc5i8g6j7d54b9q4@group.calendar.google.com/events?key=AIzaSyBP-eVlQhmfD0Ml630CHwWxsv27k14zjfc&maxResults=5&singleEvents=true&orderBy=startTime&timeMin=" + moment().format('YYYY-MM-DD') + "T00%3A00%3A00%2B00%3A00";
-	    // console.log(urlEvents);
-	    axios.get(urlEvents).then(function (response) {
-	      var events = response.data.items;
-	      // console.log(events);
-	      that.setState({
-	        events: events
-	      });
-	    }).catch(function (response) {
-	      // console.log(response);
-	    });
-	    // console.log(this.state.groups)
-	
-	    var urlGroups = "https://b458e59e35ebffd6ffbbc3d4bbfb6c0c6b100f6a-www.googledrive.com/host/0B5ENAUFZNl-YLXpKTHJ3cmY4ZGc";
-	    axios.get(urlGroups).then(function (response) {
-	      var groups = response.data;
-	      // console.log(groups);
-	      that.setState({
-	        groups: groups
-	      });
-	    }).catch(function (response) {
-	      console.log(response);
-	    });
-	    // console.log(this.state.groups);
-	  },
 	  render: function () {
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(Timeline, { events: this.state.events }),
-	      React.createElement(GroupsList, { groups: this.state.groups })
+	      React.createElement(Timeline, null),
+	      React.createElement(GroupsList, null)
 	    );
 	  }
 	});
@@ -19689,10 +19654,22 @@
 	
 	var React = __webpack_require__(2);
 	var Event = __webpack_require__(165);
+	var helpers = __webpack_require__(257);
 	
 	var Timeline = React.createClass({
+	  getInitialState: function () {
+	    return {
+	      events: []
+	    };
+	  },
+	  componentDidMount: function () {
+	    helpers.getEvents(this);
+	  },
 	  render: function () {
-	    var events = this.props.events.map(function (event, index) {
+	    console.log(this.state.events);
+	    var events = this.state.events.map(function (event, index) {
+	      console.log(index);
+	      console.log(event);
 	      return React.createElement(Event, { event: event, key: index });
 	    });
 	    return React.createElement(
@@ -40842,133 +40819,54 @@
 /* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(258);
+	var axios = __webpack_require__(258);
+	var moment = __webpack_require__(166);
 	
-	var React = __webpack_require__(2);
-	var Group = __webpack_require__(260);
-	
-	var GroupsList = React.createClass({
-	  render: function () {
-	    var groups = this.props.groups.map(function (group, index) {
-	      return React.createElement(Group, { groupInfo: group, key: index });
+	function getEvents(context) {
+	  var that = context;
+	  var urlEvents = "https://www.googleapis.com/calendar/v3/calendars/3nctrbqaukrc5i8g6j7d54b9q4@group.calendar.google.com/events?key=AIzaSyBP-eVlQhmfD0Ml630CHwWxsv27k14zjfc&maxResults=5&singleEvents=true&orderBy=startTime&timeMin=" + moment().format('YYYY-MM-DD') + "T00%3A00%3A00%2B00%3A00";
+	  axios.get(urlEvents).then(function (response) {
+	    var events = response.data.items;
+	    that.setState({
+	      events: events
 	    });
-	    return React.createElement(
-	      'div',
-	      { id: 'groups' },
-	      React.createElement(
-	        'div',
-	        { className: 'wrapper cf' },
-	        React.createElement(
-	          'ul',
-	          null,
-	          groups
-	        )
-	      )
-	    );
-	  }
-	});
+	  }).catch(function (response) {});
+	}
 	
-	module.exports = GroupsList;
+	function getGroups(context) {
+	  var that = context;
+	  var urlGroups = "https://b458e59e35ebffd6ffbbc3d4bbfb6c0c6b100f6a-www.googledrive.com/host/0B5ENAUFZNl-YLXpKTHJ3cmY4ZGc";
+	  axios.get(urlGroups).then(function (response) {
+	    var groups = response.data;
+	    that.setState({
+	      groups: groups
+	    });
+	  }).catch(function (response) {
+	    console.log(response);
+	  });
+	}
+	
+	module.exports = {
+	  getEvents: getEvents,
+	  getGroups: getGroups
+	};
 
 /***/ },
 /* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(259);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(164)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/autoprefixer-loader/index.js!./../../../node_modules/sass-loader/index.js!./groups.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/autoprefixer-loader/index.js!./../../../node_modules/sass-loader/index.js!./groups.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	module.exports = __webpack_require__(259);
 
 /***/ },
 /* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(163)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "#groups {\n  padding-top: 4rem;\n  padding-bottom: 3rem;\n  background-color: #fff; }\n  #groups ul {\n    list-style: none;\n    padding-left: none;\n    margin: 0; }\n    #groups ul .group {\n      width: 23%;\n      float: left;\n      height: 300px;\n      margin: 0 1% 2rem 1%;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n      border-radius: 0.35rem; }\n      #groups ul .group .group__logo {\n        height: 225px;\n        overflow: hidden; }\n        #groups ul .group .group__logo img {\n          width: 100%;\n          max-width: 100%;\n          border-radius: 0.35rem 0.35rem 0 0; }\n        #groups ul .group .group__logo.group__logo--v-center {\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          -webkit-box-pack: center;\n          -webkit-justify-content: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          overflow: hidden; }\n      #groups ul .group .group__info {\n        padding: 0.7rem 7.5%; }\n        #groups ul .group .group__info h2 {\n          margin: 0;\n          font-size: 16px;\n          font-weight: 700;\n          color: #22292e; }\n        #groups ul .group .group__info .group__topics {\n          color: #9aaab5;\n          font-size: 0.8rem;\n          margin: 0.5rem 0 0.25rem 0; }\n      #groups ul .group:hover img {\n        opacity: 0.8; }\n      #groups ul .group:hover .group__info h2 {\n        color: #d2674e; }\n\n@media only screen and (min-width: 320px) and (max-width: 500px) {\n  #groups ul .group {\n    width: 100%;\n    font-size: 3em; }\n    #groups ul .group p {\n      font-size: 3em; } }\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 260 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(2);
-	var normalizeGroup = __webpack_require__(275);
-	var Group = React.createClass({
-	  componentDidMount: function () {
-	    normalizeGroup();
-	  },
-	  render: function () {
-	    return React.createElement(
-	      'a',
-	      { href: this.props.groupInfo.url, target: '_blank' },
-	      React.createElement(
-	        'li',
-	        { className: 'group' },
-	        React.createElement(
-	          'div',
-	          { className: 'group__logo' },
-	          React.createElement('img', { src: this.props.groupInfo.logo })
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'group__info' },
-	          React.createElement(
-	            'h2',
-	            { className: 'group__name' },
-	            this.props.groupInfo.name
-	          ),
-	          React.createElement(
-	            'p',
-	            { className: 'group__topics' },
-	            this.props.groupInfo.topics
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = Group;
-
-/***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(262);
-
-/***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 	
-	var defaults = __webpack_require__(263);
-	var utils = __webpack_require__(264);
-	var dispatchRequest = __webpack_require__(265);
-	var InterceptorManager = __webpack_require__(272);
+	var defaults = __webpack_require__(260);
+	var utils = __webpack_require__(261);
+	var dispatchRequest = __webpack_require__(262);
+	var InterceptorManager = __webpack_require__(269);
 	
 	var axios = module.exports = function (config) {
 	  // Allow for axios('example/url'[, config]) a la fetch API
@@ -41015,7 +40913,7 @@
 	axios.all = function (promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(273);
+	axios.spread = __webpack_require__(270);
 	
 	// Expose interceptors
 	axios.interceptors = {
@@ -41054,12 +40952,12 @@
 
 
 /***/ },
-/* 263 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -41122,7 +41020,7 @@
 
 
 /***/ },
-/* 264 */
+/* 261 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41377,7 +41275,7 @@
 
 
 /***/ },
-/* 265 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -41394,11 +41292,11 @@
 	    try {
 	      // For browsers use XHR adapter
 	      if ((typeof XMLHttpRequest !== 'undefined') || (typeof ActiveXObject !== 'undefined')) {
-	        __webpack_require__(266)(resolve, reject, config);
+	        __webpack_require__(263)(resolve, reject, config);
 	      }
 	      // For node use HTTP adapter
 	      else if (typeof process !== 'undefined') {
-	        __webpack_require__(266)(resolve, reject, config);
+	        __webpack_require__(263)(resolve, reject, config);
 	      }
 	    } catch (e) {
 	      reject(e);
@@ -41410,18 +41308,18 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 266 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	/*global ActiveXObject:true*/
 	
-	var defaults = __webpack_require__(263);
-	var utils = __webpack_require__(264);
-	var buildUrl = __webpack_require__(267);
-	var parseHeaders = __webpack_require__(268);
-	var transformData = __webpack_require__(269);
+	var defaults = __webpack_require__(260);
+	var utils = __webpack_require__(261);
+	var buildUrl = __webpack_require__(264);
+	var parseHeaders = __webpack_require__(265);
+	var transformData = __webpack_require__(266);
 	
 	module.exports = function xhrAdapter(resolve, reject, config) {
 	  // Transform request data
@@ -41481,8 +41379,8 @@
 	  // This is only done if running in a standard browser environment.
 	  // Specifically not if we're in a web worker, or react-native.
 	  if (utils.isStandardBrowserEnv()) {
-	    var cookies = __webpack_require__(270);
-	    var urlIsSameOrigin = __webpack_require__(271);
+	    var cookies = __webpack_require__(267);
+	    var urlIsSameOrigin = __webpack_require__(268);
 	
 	    // Add xsrf header
 	    var xsrfValue = urlIsSameOrigin(config.url) ?
@@ -41532,12 +41430,12 @@
 
 
 /***/ },
-/* 267 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -41597,12 +41495,12 @@
 
 
 /***/ },
-/* 268 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	
 	/**
 	 * Parse headers into an object
@@ -41637,12 +41535,12 @@
 
 
 /***/ },
-/* 269 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	
 	/**
 	 * Transform the data for a request or a response
@@ -41662,7 +41560,7 @@
 
 
 /***/ },
-/* 270 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41673,7 +41571,7 @@
 	 *  Please see lib/utils.isStandardBrowserEnv before including this file.
 	 */
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	
 	module.exports = {
 	  write: function write(name, value, expires, path, domain, secure) {
@@ -41711,7 +41609,7 @@
 
 
 /***/ },
-/* 271 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41722,7 +41620,7 @@
 	 *  Please see lib/utils.isStandardBrowserEnv before including this file.
 	 */
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	var msie = /(msie|trident)/i.test(navigator.userAgent);
 	var urlParsingNode = document.createElement('a');
 	var originUrl;
@@ -41775,12 +41673,12 @@
 
 
 /***/ },
-/* 272 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var utils = __webpack_require__(264);
+	var utils = __webpack_require__(261);
 	
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -41833,7 +41731,7 @@
 
 
 /***/ },
-/* 273 */
+/* 270 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41866,7 +41764,160 @@
 
 
 /***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(272);
+	
+	var React = __webpack_require__(2);
+	var Group = __webpack_require__(274);
+	var helpers = __webpack_require__(257);
+	
+	var GroupsList = React.createClass({
+	  getInitialState: function () {
+	    return {
+	      groups: []
+	    };
+	  },
+	  componentDidMount: function () {
+	    helpers.getGroups(this);
+	  },
+	  render: function () {
+	    var groups = this.state.groups.map(function (group, index) {
+	      return React.createElement(Group, { groupInfo: group, key: index });
+	    });
+	    return React.createElement(
+	      'div',
+	      { id: 'groups' },
+	      React.createElement(
+	        'div',
+	        { className: 'wrapper cf' },
+	        React.createElement(
+	          'ul',
+	          null,
+	          groups
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = GroupsList;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(273);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(164)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/autoprefixer-loader/index.js!./../../../node_modules/sass-loader/index.js!./groups.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/autoprefixer-loader/index.js!./../../../node_modules/sass-loader/index.js!./groups.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(163)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "#groups {\n  padding-top: 4rem;\n  padding-bottom: 3rem;\n  background-color: #fff; }\n  #groups ul {\n    list-style: none;\n    padding-left: none;\n    margin: 0; }\n    #groups ul .group {\n      width: 23%;\n      float: left;\n      height: 300px;\n      margin: 0 1% 2rem 1%;\n      border: 1px solid rgba(0, 0, 0, 0.12);\n      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);\n      border-radius: 0.35rem; }\n      #groups ul .group .group__logo {\n        height: 225px;\n        overflow: hidden; }\n        #groups ul .group .group__logo img {\n          width: 100%;\n          max-width: 100%;\n          border-radius: 0.35rem 0.35rem 0 0; }\n        #groups ul .group .group__logo.group__logo--v-center {\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n              -ms-flex-align: center;\n                  align-items: center;\n          -webkit-box-pack: center;\n          -webkit-justify-content: center;\n              -ms-flex-pack: center;\n                  justify-content: center;\n          overflow: hidden; }\n      #groups ul .group .group__info {\n        padding: 0.7rem 7.5%; }\n        #groups ul .group .group__info h2 {\n          margin: 0;\n          font-size: 16px;\n          font-weight: 700;\n          color: #22292e; }\n        #groups ul .group .group__info .group__topics {\n          color: #9aaab5;\n          font-size: 0.8rem;\n          margin: 0.5rem 0 0.25rem 0; }\n      #groups ul .group:hover img {\n        opacity: 0.8; }\n      #groups ul .group:hover .group__info h2 {\n        color: #d2674e; }\n\n@media only screen and (min-width: 320px) and (max-width: 500px) {\n  #groups ul .group {\n    width: 100%;\n    font-size: 3em; }\n    #groups ul .group p {\n      font-size: 3em; } }\n", ""]);
+	
+	// exports
+
+
+/***/ },
 /* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(2);
+	var normalizeGroup = __webpack_require__(275);
+	var Group = React.createClass({
+	  componentDidMount: function () {
+	    normalizeGroup();
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'a',
+	      { href: this.props.groupInfo.url, target: '_blank' },
+	      React.createElement(
+	        'li',
+	        { className: 'group' },
+	        React.createElement(
+	          'div',
+	          { className: 'group__logo' },
+	          React.createElement('img', { src: this.props.groupInfo.logo })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'group__info' },
+	          React.createElement(
+	            'h2',
+	            { className: 'group__name' },
+	            this.props.groupInfo.name
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'group__topics' },
+	            this.props.groupInfo.topics
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Group;
+
+/***/ },
+/* 275 */
+/***/ function(module, exports) {
+
+	function normalizeGroup() {
+	
+	  var titles = $('.group__name');
+	  titles.each(function () {
+	    var titleLength = $(this).html().length;
+	    if (titleLength > 19) {
+	      $(this).css({
+	        fontSize: '12px'
+	      });
+	    }
+	  });
+	
+	  setTimeout(function () {
+	    var images = $('.group__logo');
+	    $.each(images, function () {
+	      var img = $(this).find('img');
+	      var nh = img.prop('height');
+	      if (nh < 70) {
+	        $(this).addClass('group__logo--v-center');
+	      }
+	    });
+	  }, 3000);
+	}
+	module.exports = normalizeGroup;
+
+/***/ },
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function ($) {
@@ -41901,36 +41952,6 @@
 	    }
 	  });
 	})(__webpack_require__(256));
-
-/***/ },
-/* 275 */
-/***/ function(module, exports) {
-
-	function normalizeGroup() {
-	
-	  var titles = $('.group__name');
-	  titles.each(function () {
-	    var titleLength = $(this).html().length;
-	    if (titleLength > 19) {
-	      $(this).css({
-	        fontSize: '12px'
-	      });
-	    }
-	  });
-	
-	  setTimeout(function () {
-	    var images = $('.group__logo');
-	    $.each(images, function () {
-	      var img = $(this).find('img');
-	      var nh = img.prop('height');
-	      console.log(nh);
-	      if (nh < 70) {
-	        $(this).addClass('group__logo--v-center');
-	      }
-	    });
-	  }, 3000);
-	}
-	module.exports = normalizeGroup;
 
 /***/ }
 /******/ ]);

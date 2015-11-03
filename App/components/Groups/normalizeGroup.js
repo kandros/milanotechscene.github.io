@@ -16,7 +16,6 @@ setTimeout(function () {
   $.each(images,function() {
     var img = $(this).find('img');
     var nh = img.prop('height');
-    console.log(nh);
     if (nh < 70) {
       $(this).addClass('group__logo--v-center');
     }
