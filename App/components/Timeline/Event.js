@@ -1,17 +1,18 @@
 var React = require('react');
 var moment = require('moment');
 var initEventsEntryAnimation = require('./eventsEntryAnimation.js');
-
+var initWowAnimation = require('../../util/initWowAnimation.js');
 
 var Event = React.createClass({
   componentDidMount: function() {
-    initEventsEntryAnimation();
+    // initEventsEntryAnimation();
+    initWowAnimation()
   },
   render: function() {
     var momentDate = moment(this.props.event.start.dateTime, moment.ISO_8601);
     var date = momentDate.locale("it").format('dddd DD MMMM');
     return (
-      <div className="cd-timeline-block">
+      <div className="wow fadeIn cd-timeline-block">
   			<div className="cd-timeline-img cd-location">
   				<img src="images/cd-icon-location.svg" alt="Picture" />
   			</div>
