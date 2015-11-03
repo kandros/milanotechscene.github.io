@@ -4,7 +4,8 @@
   "description": "Website for milanotechscene community",
   "main": "public/index.html",
   "scripts": {
-    "start": "./node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --color"
+    "dev": "webpack -w",
+    "dist": "rm -rf ./__dist && mkdir __dist && webpack -p && cp -r ./public/* ./__dist/"
   },
   "repository": {
     "type": "git",
