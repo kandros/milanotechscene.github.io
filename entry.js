@@ -1,3 +1,6 @@
+require('./scss/entry.scss');
+
+
 (function($) {
   $(document).ready(function() {
 
