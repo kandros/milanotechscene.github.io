@@ -1,0 +1,47 @@
+{
+  "name": "milanotechscene.github.io",
+  "version": "2.0.0",
+  "description": "Website for milanotechscene community",
+  "main": "public/index.html",
+  "scripts": {
+    "dev": "webpack -w",
+    "build": "webpack",
+    "predist": "rm -rf ./__dist",
+    "dist": "mkdir __dist && webpack -p && cp -r ./public/* ./__dist/",
+    "env": "env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kandros/milanotechscene.github.io.git"
+  },
+  "author": "kandros5591@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kandros/milanotechscene.github.io/issues"
+  },
+  "homepage": "https://github.com/kandros/milanotechscene.github.io#readme",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel-core": "^6.0.14",
+    "babel-loader": "^6.0.0",
+    "babel-preset-react": "^6.0.14",
+    "css-loader": "^0.21.0",
+    "expose-loader": "^0.7.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "node-sass": "^3.4.1",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "axios": "^0.7.0",
+    "history": "^1.13.0",
+    "jquery": "^2.1.4",
+    "modernizr": "^3.2.0",
+    "moment": "^2.10.6",
+    "react": "^0.14.1",
+    "react-dom": "^0.14.1",
+    "react-router": "^1.0.0-rc4"
+  }
+}

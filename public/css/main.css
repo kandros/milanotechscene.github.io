@@ -1,0 +1,169 @@
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #7f8c97;
+  background-color: #e9f0f5;
+}
+
+a {
+  color: #acb7c0;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.wrapper_wide, .wrapper, .wrapper_skinny {
+  margin: 0 auto
+}
+.wrapper_wide {
+  width: 90%
+}
+.wrapper {
+  width: 80%
+}
+.wrapper_skinny {
+  width: 60%
+}
+.pagination:before, .pagination:after, .cf:before, .cf:after {
+  content: " ";
+  display: table
+}
+.pagination:after, .cf:after {
+  clear: both
+}
+.button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  min-width: 8.5rem
+}
+.button_highlight, .button_white {
+  transition: background 0.4s ease-in-out
+}
+.button_highlight:hover, .button_white:hover {
+  background: #c74f33
+}
+.button_highlight {
+  background: #d2674e
+}
+.button_white {
+  background: #fff;
+  color: #22292e
+}
+#main_header.scrolled {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+  opacity: 0.95;
+  padding: 5px
+}
+#main_header {
+  position: fixed;
+  width: 100%;
+  z-index: 30;
+  color: #22292e;
+  transition: all 0.6s;
+  background: #fff;
+  padding: 0.5rem 0 1rem
+}
+#main_header #logo {
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #22292e;
+  text-decoration: none
+}
+#main_header #logo img {
+  height: 50px;
+  padding-top: 5px;
+}
+#main_header #logo img:hover {
+  opacity: 0.8
+}
+#main_header nav {
+  padding-top: 1rem;
+  float: right
+}
+#main_header nav ul {
+  list-style: none;
+  margin: 0
+}
+#main_header nav ul li {
+  display: inline;
+  margin-left: 2.5rem
+}
+#main_header nav ul li a {
+  color: #22292e;
+  text-decoration: none;
+  padding-left: 2rem
+}
+#main_header nav ul li a:hover {
+  color: #d2674e
+}
+#menu-button {
+  display: none
+}
+#banner {
+  background-image: url('../images/tram.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  padding-top: 130px;
+}
+#banner #title {
+  padding-top: 6rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2)
+}
+#banner h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
+  padding-bottom: 4rem
+}
+
+@media only screen and (max-width: 500px) and (min-width: 320px) {
+  #banner #title {
+    padding-top: 2rem
+  }
+  #menu-button {
+    float: right;
+    padding-top: 20px;
+    display: inline-block
+  }
+  #main_header nav, #main_header #logo {
+    float: none
+  }
+  #main_header nav ul li a {
+    font-size: 1.5rem;
+    margin-top: 16px
+  }
+  #main_header nav {
+    display: none
+  }
+  #main_header {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25)
+  }
+  #main_header nav ul, #main_header nav ul li, #main_header nav ul li a {
+    display: block
+  }
+}
