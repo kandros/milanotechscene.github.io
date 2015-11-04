@@ -1,4 +1,3 @@
-require('./scss/entry.scss');
 
 
 (function($) {
