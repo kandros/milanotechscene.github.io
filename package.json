@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kandros/milanotechscene.github.io.git"
+    "url": "https://github.com/MilanoTechScene/milanotechscene.github.io"
   },
   "author": "kandros5591@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kandros/milanotechscene.github.io/issues"
+    "url": "https://github.com/MilanoTechScene/milanotechscene.github.io/issues"
   },
-  "homepage": "https://github.com/kandros/milanotechscene.github.io#readme",
+  "homepage": "https://github.com/MilanoTechScene/milanotechscene.github.io",
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.0.14",
