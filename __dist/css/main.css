@@ -90,7 +90,8 @@ h1, h2 {
   text-decoration: none
 }
 #main_header #logo img {
-  height: 50px
+  height: 50px;
+  padding-top: 5px;
 }
 #main_header #logo img:hover {
   opacity: 0.8
