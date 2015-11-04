@@ -1,8 +1,9 @@
 # MilanoTeschScne
 
 ## Setup
+- `[sudo] npm install -g webpack`
 - `[sudo] npm install`
 
 ## Build
-- Build: `webpack`
-- Build and watch for changes `webpack -w`
+- Build and watch for changes `npm run dev`
+- Prepare for production `npm run dist`
