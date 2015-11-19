@@ -8,8 +8,8 @@ var Group = React.createClass({
   },
   render: function() {
     return (
-      <a href={this.props.groupInfo.url} target="_blank">
         <li className="wow fadeIn group">
+          <a href={this.props.groupInfo.url} target="_blank">
           <div className="group__logo">
             <img src={this.props.groupInfo.logo} />
           </div>
@@ -17,8 +17,8 @@ var Group = React.createClass({
             <h2 className="group__name">{this.props.groupInfo.name}</h2>
             <p className="group__topics">{this.props.groupInfo.topics}</p>
           </div>
-        </li>
-      </a>
+        </a>
+      </li>
     )
   }
 });

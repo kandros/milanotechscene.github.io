@@ -42044,11 +42044,11 @@
 	  },
 	  render: function () {
 	    return React.createElement(
-	      'a',
-	      { href: this.props.groupInfo.url, target: '_blank' },
+	      'li',
+	      { className: 'wow fadeIn group' },
 	      React.createElement(
-	        'li',
-	        { className: 'wow fadeIn group' },
+	        'a',
+	        { href: this.props.groupInfo.url, target: '_blank' },
 	        React.createElement(
 	          'div',
 	          { className: 'group__logo' },
