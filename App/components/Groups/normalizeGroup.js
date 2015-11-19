@@ -11,12 +11,13 @@ function normalizeGroup() {
   });
 
 
-setTimeout(function () {
-  var images = $('.group__logo');
-  $.each(images,function() {
-    var img = $(this).find('img');
-    var nh = img.prop('height');
-    if (nh < 70) {
+
+setTimeout(function() {
+  var $images = $('.group__logo');
+  $.each($images, function() {
+    var $img = $(this).find('img');
+    var h = $img.prop('height');
+    if (h < 70) {
       $(this).addClass('group__logo--v-center');
     }
   });
