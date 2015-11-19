@@ -4,7 +4,6 @@
   background-color: #fff;
   ul {
     list-style: none;
-    padding-left: none;
     margin: 0;
     .group {
       width: 23%;
@@ -53,14 +52,27 @@
       }
     }
   }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 500px) {
-  #groups ul .group {
-    width: 100%;
-    font-size: 3em;
-    p {
-      font-size: 3em;
+    @media only screen and (max-width: 1024px) {
+      .wrapper {
+        width: 100%;
+      }
+      ul {
+        padding: 0 80px;
+        .group {
+          width: 48%;
+          height: 490px;
+          .group__logo {
+            height: 380px;
+          }
+          .group__info  {
+            h2 {
+              font-size: 26px!important;
+            }
+            .group__topics {
+              font-size: 24px;
+            }
+          }
+        }
+      }
     }
-  }
 }

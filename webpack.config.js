@@ -20,15 +20,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'autoprefixer', 'sass']
-        // loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
-      },
-      { test: /\.css$/, loader: "style-loader!css-loader" }
+        loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
+      }
     ]
-  }
-  // plugins: [
-  //   new ExtractTextPlugin('public/style.css', {
-  //       allChunks: true
-  //   })
-  // ]
+  },
+  plugins: [
+    new ExtractTextPlugin('public/css/bundle.css', {
+        // allChunks: true
+    })
+  ]
 };
