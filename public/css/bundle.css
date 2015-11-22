@@ -42,6 +42,10 @@
   .cd-timeline-block:last-child {
     margin-bottom: 0; }
 
+@media only screen and (max-width: 1024px) {
+  #cd-timeline .cd-timeline-content {
+    padding: 3.5em; } }
+
 @media only screen and (min-width: 1170px) {
   .cd-timeline-block {
     margin: 4em 0; }
