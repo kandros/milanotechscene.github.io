@@ -10,19 +10,12 @@ function normalizeGroup() {
     }
   });
 
-
-
-setTimeout(function() {
-  var $images = $('.group__logo');
-  $.each($images, function() {
-    var $img = $(this).find('img');
-    var h = $img.prop('height');
-    if (h < 70) {
-      $(this).addClass('group__logo--v-center');
-    }
-  });
-}, 3000);
-
+$('.group__logo img').load(function() {
+  var h = $(this).prop('height');
+  if (h < 70) {
+    $(this).parent('.group__logo').addClass('group__logo--v-center');
+  }
+});
 
 }
 module.exports = normalizeGroup;
